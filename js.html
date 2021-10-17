@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    <div class="border">
+        <div>이름: <input type="text" id="name" style="border-style: none; border-bottom:1px solid #333;"/></div><br>
+        <div>비밀번호: <input type="password" id="pwd" style="border-style: none; border-bottom:1px solid #333;"/></div><br>
+        <div> 
+        지역: <select id="city" onchange="changeCity();">
+                <option value="1" selected>경주</option>
+                <option value="2">부산</option>
+                <option value="3">제주도</option>
+        </select>
+        </div><br>
+        <div>
+            관광:
+            <select id="tour_1">
+                <option>첨성대</option>
+                <option>석굴암</option>
+            </select>
+            <select id="tour_2" style="display:none;">
+                <option>해운대</option>
+                <option>마린시티</option>
+            </select>
+            <select id="tour_3" style="display:none;">
+                <option>우도</option>
+                <option>성산일출봉</option>
+            </select>
+        </div><br>
+
+        <div>테스트: <input type="text" id="test" vlaue="" /></div>
+
+        <button type="button" onclick="regist();">등록</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script>
+        function regist() {
+            alert(document.getElementById("name").value);
+            alert("반갑습니다.");
+
+          //오브젝트로 묶어서 한번에 관리
+            let obj = {};
+        obj.name = document.getElementById("name").value;
+        obj.city = document.getElementById("city").value;
+
+        
+
+        printConsole(obj);
+
+            //document.getElementById("name").value;
+
+        }
+
+        function printConsole(data) {
+            console.log(data);
+        }
+
+        function changeCity() {
+            let city = document.getElementById("city").value;
+            document.getElementById("tour_1").style.display = "none";
+            document.getElementById("tour_2").style.display = "none";
+            document.getElementById("tour_3").style.display = "none";
+
+            document.getElementById("tour_"+city).style.display = "";
+        }
+
+        //var(동일한 변수명 선언 가능), let(동일한 변수명 선언 시 오류), const(절대 바뀌지않는 값)
+        var x =1;
+        x= x + 2;
+
+        let y =1;
+        y = y+5;
+
+        const z = 1;
+
+        document.getElementById("test").value = y;
+ 
+    </script>
+</body>
+</html>
